@@ -2,7 +2,7 @@ name: Update ICS File
 
 on:
   schedule:
-    - cron: '0 * * * *'  # every hour
+  - cron: '*/5 * * * *'  # every 5 minutes (maximum reliable frequency)
   workflow_dispatch:
 
 jobs:
