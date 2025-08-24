@@ -3,7 +3,7 @@ import requests
 from datetime import datetime, timedelta
 
 URL = "https://maristeastwood-nsw.compass.education/download/sharedCalendar.aspx?uid=4760&key=3e2b483d-54f8-4407-b698-c3587b2bd511&c.ics"
-ICAL_FILE = "/docs/fixed_calendar.ics"
+ICAL_FILE = "docs/fixed_calendar.ics"
 
 def convert_utc_to_aest(utc_str):
     dt = datetime.strptime(utc_str, "%Y%m%dT%H%M%SZ")
