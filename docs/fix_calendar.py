@@ -7,7 +7,7 @@ ICAL_FILE = "docs/fixed_calendar.ics"
 
 def convert_utc_to_aest(utc_str):
     dt = datetime.strptime(utc_str, "%Y%m%dT%H%M%SZ")
-    dt += timedelta(hours=10)  # Convert UTC to AEST (+10)
+    dt += timedelta(hours=11)  # Convert UTC to AEDT (+11)
     return dt.strftime("%Y%m%dT%H%M%S")
 
 def main():
