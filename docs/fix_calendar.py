@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 URL = "https://maristeastwood-nsw.compass.education/download/sharedCalendar.aspx?uid=4760&key=3e2b483d-54f8-4407-b698-c3587b2bd511&c.ics"
 ICAL_FILE = "docs/fixed_calendar.ics"
 
-def convert_utc_to_aest(utc_str):
+def convert_utc_to_aedt(utc_str):
     dt = datetime.strptime(utc_str, "%Y%m%dT%H%M%SZ")
     dt += timedelta(hours=11)  # Convert UTC to AEDT (+11)
     return dt.strftime("%Y%m%dT%H%M%S")
@@ -19,10 +19,10 @@ def main():
     for line in lines:
         if line.startswith("DTSTART:"):
             time_str = line.replace("DTSTART:", "")
-            fixed_lines.append(f"DTSTART;TZID=Australia/Sydney:{convert_utc_to_aest(time_str)}")
+            fixed_lines.append(f"DTSTART;TZID=Australia/Sydney:{convert_utc_to_aedt(time_str)}")
         elif line.startswith("DTEND:"):
             time_str = line.replace("DTEND:", "")
-            fixed_lines.append(f"DTEND;TZID=Australia/Sydney:{convert_utc_to_aest(time_str)}")
+            fixed_lines.append(f"DTEND;TZID=Australia/Sydney:{convert_utc_to_aedt(time_str)}")
         else:
             fixed_lines.append(line)
 
